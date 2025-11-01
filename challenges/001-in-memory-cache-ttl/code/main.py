@@ -1,5 +1,4 @@
 from collections import OrderedDict
-from typing import OrderedDict
 import time
 import threading
 
@@ -25,7 +24,6 @@ class InMemoryCacheTTL:
     
     def _auto_cleanup(self):
         while True:
-            print("Cleaning up")
             time.sleep(self._cleanup_interval)
             with self._lock:
                 self.delete_expired_keys()
